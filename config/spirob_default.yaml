@@ -1,0 +1,57 @@
+# SpiRob Default Configuration
+# This file contains default parameters for the spirob_bus node
+
+spirob_bus:
+  ros__parameters:
+    # ===== Connection =====
+    port: 'auto'   # 'auto' to scan for servo bus, or specific port like '/dev/ttyUSB0'
+    baud: 1000000  # 1 Mbps (Waveshare ST/SC default)
+
+    # ===== ID Mapping =====
+    # Map tendon names to servo bus IDs
+    id_map:
+      u: 1
+      v: 2
+      w: 3
+
+    # ===== Telemetry =====
+    telemetry_rate_hz: 50.0  # Hz, rate for state polling
+
+    # ===== Soft Limits =====
+    # Per-tendon angle limits in degrees (relative to zero position)
+    soft_limits:
+      u:
+        min_deg: -2292.0
+        max_deg: 2292.0
+      v:
+        min_deg: -2292.0
+        max_deg: 2292.0
+      w:
+        min_deg: -2292.0
+        max_deg: 2292.0
+
+    # ===== Global Limits =====
+    speed_limit_dps: 360.0        # Maximum speed in degrees/second
+    torque_limit_percent: 80.0    # Maximum torque as percentage (0-100)
+
+    # ===== Spool Geometry =====
+    # Physical dimensions for load compensation calculations
+    spool:
+      core_radius_mm: 5.0         # Radius of empty spool (10mm diameter)
+      tendon_diameter_mm: 1.0     # Tendon thickness
+      wrap_width_mm: 15.0         # Width of spool (wraps per layer)
+      usable_layers: 5            # Maximum layers before spool is full
+
+    # ===== Safety =====
+    heartbeat_timeout_ms: 200     # Max time without servo response
+
+    # ===== Load Compensation =====
+    # Parameters for adaptive speed/torque adjustment
+    compensation:
+      base_speed_dps: 180.0           # Default movement speed
+      base_torque_percent: 50.0       # Default torque limit
+      stuck_threshold_deg: 1.0        # Position change threshold for stuck detection
+      stuck_timeout_sec: 0.5          # Time without progress before adapting
+      adaptation_step_percent: 10.0   # Step size for torque/speed increase
+      max_torque_percent: 90.0        # Maximum torque after adaptation
+      max_speed_dps: 360.0            # Maximum speed after adaptation

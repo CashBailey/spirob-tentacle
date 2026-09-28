@@ -1,0 +1,15 @@
+# Claude Code config
+.claude/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# Logs
+log/
+
+# IDE
+.vscode/
+.idea/

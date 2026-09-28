@@ -1,0 +1,38 @@
+# Default SpiRob presets
+# These are copied to ~/.spirob/presets.yaml on first run
+
+presets:
+  - name: Home
+    u: 0.0
+    v: 0.0
+    w: 0.0
+
+  - name: Curl Left
+    u: -90.0
+    v: 45.0
+    w: 0.0
+
+  - name: Curl Right
+    u: 90.0
+    v: -45.0
+    w: 0.0
+
+  - name: Extend
+    u: 180.0
+    v: 0.0
+    w: 180.0
+
+  - name: Wrap
+    u: -180.0
+    v: -180.0
+    w: -180.0
+
+  - name: Spiral CW
+    u: 90.0
+    v: 90.0
+    w: 90.0
+
+  - name: Spiral CCW
+    u: -90.0
+    v: -90.0
+    w: -90.0
